@@ -2,7 +2,7 @@ The module to interact with the Auth0Management API
 
 ## To run this:
 
-1. Clone the repo: `git@github.com:sevilayha/auth0-management-api-tool.git`
+1. Clone the repo: `git@github.com:sarahjay55/auth0-management-api-tool.git`
 2. Add credentials to a new `.env` file
 3. Install nodemon: `npm i -g nodemon`
 4. Run the server: `node server.js` or `nodemon server.js`
