@@ -1,3 +1,4 @@
+require('dotenv').config();
 const axios = require('axios');
 const ManagementClient = require('auth0').ManagementClient;
 
@@ -65,7 +66,7 @@ module.exports = (function () {
         const clientSecret = process.env.CLIENT_SECRET;
         const url = `https://${process.env.CLIENT_DOMAIN}.auth0.com/oauth/token`;
 
-        // make the call to the api via POST
+        // make the call to the API via POST
         return axios
             .post(url, {
                 client_id: clientId,

@@ -2,11 +2,11 @@ The module to interact with the Auth0Management API
 
 ## To run this:
 
-1. Clone the repo: `git@github.com:sevilayha/auth0-management-api-tool.git`
-2. Add credentials to a new `.env` file
-3. Install nodemon: `npm i -g nodemon`
-4. Run the server: `node server.js` or `nodemon server.js`
-5. Visit the app and see your client info: [http://localhost:8080](http://localhost:8080)
+1. Clone the repo: `git@github.com:sarahjay55/auth0-management-api.git`.
+2. Add Auth0 credentials to a new `.env` file.
+3. Run `npm install` to install the dependencies.
+3. Run files with the command `node get-client.js` and `node update-client.js`.
+4. See changes in newly created file, `update-client.js`.
 
 ## Requirements:
 
@@ -23,10 +23,13 @@ The module to interact with the Auth0Management API
 ## Example usage to get a client:
 
 ```
-const Auth0Manager = require('./Auth0Manager');
-Auth0Manager
-  .init()
-  .then(() => Auth0Manager.getClient())
-  .then(client => res.json(client))
-  .catch(err => res.json({ message: 'There was an error!', ...err }));
+Auth0Manager.init()
+    .then(() => Auth0Manager.getClient())
+    .then(client => {
+
+        var data = fs.writeFileSync('./client-data.json', JSON.stringify(client), { encoding: 'utf8' });
+        console.log(data);
+        return client;
+    })
+    .catch(console.error);
 ```
